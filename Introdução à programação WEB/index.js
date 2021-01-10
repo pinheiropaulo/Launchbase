@@ -35,14 +35,14 @@ const calculateAverage = (students) => {
     sum = sum + students[i].grade;
   }
 
-  const avegage = sum / students.length;
+  const average = sum / students.length;
 
-  return avegage;
+  return average;
 };
 
-const sendMessage = (avegage, turma) => {
-  if (avegage > 5) {
-    console.log(`A media da ${turma} foi de ${avegage}. Parabéns`);
+const sendMessage = (average, turma) => {
+  if (average > 5) {
+    console.log(`A media da ${turma} foi de ${average}. Parabéns`);
   } else {
     console.log(`A media da ${turma} é menor que 5`);
   }
@@ -68,11 +68,11 @@ const studentsReprovados = (students) => {
   }
 };
 
-const avegage1 = calculateAverage(classA);
-const avegage2 = calculateAverage(classB);
+const average1 = calculateAverage(classA);
+const average2 = calculateAverage(classB);
 
-sendMessage(avegage1, 'Turma A');
-sendMessage(avegage2, 'Turma B');
+sendMessage(average1, 'Turma A');
+sendMessage(average2, 'Turma B');
 
 studentsReprovados(classA);
 studentsReprovados(classB);
