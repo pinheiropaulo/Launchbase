@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/style.css"/>
+    {% block head %}
+      <title>Gym Manenger</title>
+    {%endblock %}
+  </head>
+  <body>
+    <header>
+      <div class="links">
+        <a href="/" class="active">Instructors</a>
+        <a href="/members">Members</a>
+      </div>
+    </header>
+
+    {% block content %}{% endblock %}
+  </body>
+</html>
