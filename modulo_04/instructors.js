@@ -2,6 +2,34 @@ const fs = require("fs");
 
 const data = require("./data.json");
 
+exports.show = (req, res) => {
+  const { id } = req.params;
+
+  const foundInstruction = data.instructors.find((instructor) => {
+    return instructor.id == id;
+  });
+
+  if (!foundInstruction) return res.send("Instructor Not Found");
+
+  const verifyGender = () => {
+    if (foundInstruction.gender == "M") {
+      return "Masculino";
+    } else {
+      return "Feminino";
+    }
+  };
+
+  const instructor = {
+    ...foundInstruction,
+    age: "",
+    services: foundInstruction.services.split(","),
+    created_at: "",
+    gender: verifyGender(),
+  };
+
+  return res.render("instructors/show", { instructor });
+};
+
 //post
 exports.post = (req, res) => {
   const keys = Object.keys(req.body);
