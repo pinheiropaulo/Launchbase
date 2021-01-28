@@ -26,6 +26,15 @@
       "gender": "M",
       "services": "Musculação, CrossFit",
       "created_at": 1611767128274
+    },
+    {
+      "id": 4,
+      "avatar_url": "https://www.google.com/",
+      "name": "Teste Teste",
+      "birth": 830304000000,
+      "gender": "M",
+      "services": "Musculação, CrossFit",
+      "created_at": 1611838439896
     }
   ]
 }
