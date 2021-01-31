@@ -182,3 +182,8 @@ a.button {
   text-decoration: none;
   color: #000;
 }
+
+#form_delete button[type="submit"] {
+  margin-top: 16px;
+  background-color: lightcoral;
+}

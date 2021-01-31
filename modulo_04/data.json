@@ -1,15 +1,6 @@
 {
   "instructors": [
     {
-      "id": 1,
-      "avatar_url": "https://www.google.com/",
-      "name": "Paulo Pinheiro",
-      "birth": 1611446400000,
-      "gender": "M",
-      "services": "Musculação, CrossFit",
-      "created_at": 1611767054374
-    },
-    {
       "id": 2,
       "avatar_url": "https://www.google.com/",
       "name": "Teste",
