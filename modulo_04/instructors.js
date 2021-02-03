@@ -4,6 +4,10 @@ const { age, date } = require("./utils");
 
 const data = require("./data.json");
 
+exports.index = (req, res) => {
+  return res.render("instructors/index", { instructors: data.instructors });
+};
+
 exports.show = (req, res) => {
   const { id } = req.params;
 
@@ -100,6 +104,7 @@ exports.put = (req, res) => {
     ...foundInstruction,
     ...req.body,
     birth: Date.parse(req.body.birth),
+    id: Number(req.body.id),
   };
 
   data.instructors[index] = instructor;
