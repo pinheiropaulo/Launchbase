@@ -147,7 +147,8 @@ header {
 
 /* form */
 
-input {
+input,
+select {
   width: 100%;
   outline: none;
   color: #555;
@@ -245,13 +246,19 @@ tbody tr td:first-child span {
   font-size: 14px;
 }
 
-tbody tr td:last-child a {
+tbody tr td:last-child a,
+.table_container > a {
   background-color: var(--primary-color);
   padding: 8px 16px;
   text-transform: uppercase;
   color: #fff;
   font-size: 14px;
   border-radius: 4px;
+}
+
+.table_container > a {
+  display: inline-block;
+  margin-bottom: 16px;
 }
 
 .table_container thead tr th:last-child,
