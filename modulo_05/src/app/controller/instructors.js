@@ -1,4 +1,4 @@
-const Instructor = require("../models/instructor");
+const Instructor = require("../models/Instructor");
 
 const { age, date } = require("../../lib/utils");
 
