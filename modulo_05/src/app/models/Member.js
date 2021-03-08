@@ -37,8 +37,6 @@ module.exports = {
       data.instructor,
     ];
 
-    console.log(values);
-
     db.query(query, values, function (err, results) {
       if (err) throw `Database Error ${err}`;
       callback(results.rows[0]);
