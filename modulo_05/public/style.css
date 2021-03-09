@@ -181,12 +181,12 @@ a.button {
   display: block;
   text-align: center;
   text-decoration: none;
-  color: #000;
 }
 
 #form_delete button[type="submit"] {
   margin-top: 16px;
   background-color: lightcoral;
+  color: #000;
 }
 
 /* index Instructors */
@@ -241,7 +241,6 @@ tbody tr td:first-child span {
 
 .table_container tbody tr td span {
   padding: 8px 16px;
-  background-color: var(--secondary-color);
   color: #000;
   text-transform: uppercase;
   font-size: 14px;
