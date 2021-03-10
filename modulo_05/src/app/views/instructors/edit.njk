@@ -18,6 +18,15 @@
 
     </section>
   </div>
-  <script src="/script.js"></script>
+  <script>
+    const formDelete = document.querySelector("#form_delete");
+
+    formDelete.addEventListener("submit", (event) => {
+      const confirmation = confirm("Deseja Deletar ??");
+      if (!confirmation) {
+        event.preventDefault();
+      }
+    });
+  </script>
 
 {% endblock %}

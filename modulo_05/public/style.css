@@ -296,3 +296,32 @@ td:last-child {
 .table_container .header form button {
   margin: 0;
 }
+
+/* pagination */
+
+.table_container {
+  display: grid;
+  grid-template: 64px 1fr 16px / 1fr;
+}
+
+.table_container .header {
+  margin: 0;
+  align-self: start;
+}
+
+.table_container .pagination {
+  margin: 0;
+  align-self: end;
+  justify-self: center;
+}
+
+.table_container .pagination a,
+.table_container .pagination span {
+  color: var(--primary-color);
+  margin-right: 16px;
+}
+
+.table_container .pagination a:hover {
+  filter: brightness(0.3);
+  border-bottom: 1px solid var(--primary-color);
+}
