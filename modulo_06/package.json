@@ -3,17 +3,18 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": " npm-run-all -p nodemon browsersync",
+    "dev": " npm-run-all -p nodemon build:sass browsersync",
     "nodemon": "nodemon src/server.js",
-    "browsersync": "browser-sync start --proxy http://localhost:8080 --files 'public,src/app/views'"
+    "browsersync": "browser-sync start --proxy http://localhost:8080 --files 'public,src/app/views'",
+    "build:sass": "sass --watch ./src/app/scss/index.scss:public/styles/index.css"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "knex": "^0.95.1",
     "method-override": "^3.0.0",
     "nunjucks": "^3.2.3",
-    "pg": "^8.5.1"
+    "pg": "^8.5.1",
+    "sass": "^1.32.8"
   },
   "devDependencies": {
     "browser-sync": "^2.26.14",
