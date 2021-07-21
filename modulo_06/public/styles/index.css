@@ -1,10 +1,90 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+:root {
+  --primary-color: #fd951f;
+  --secondary-color: #1fd4fd;
+}
+
 * {
   margin: 0;
   padding: 0;
   border: none;
   text-decoration: none;
+  list-style-type: none;
   box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f9f9f9f9;
+}
+
+.container {
+  width: 90%;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  padding: 32px;
+  text-align: center;
+}
+header .container {
+  display: grid;
+  grid-template-columns: 220px 1fr 280px;
+  align-items: center;
+  grid-gap: 24px;
+}
+header a {
+  justify-self: start;
+}
+header .logo h1 {
+  color: #fff;
+  font-size: 36px;
+  line-height: 46px;
+}
+header .logo h2 {
+  color: var(--primary-color);
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 2px;
+}
+header .search input {
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 2px;
+  font-size: 16px;
+}
+header .primary ul {
+  display: flex;
+  justify-content: space-between;
+}
+header .primary ul li :hover {
+  color: var(--primary-color);
+}
+header .primary ul li a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  transition: 200ms;
+}
+header .primary ul li a i {
+  margin-right: 8px;
+}
+
+footer {
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  padding: 32px;
+  text-align: center;
 }
 
 /*# sourceMappingURL=index.css.map */

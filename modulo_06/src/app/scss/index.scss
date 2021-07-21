@@ -1,9 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
+@import "variables";
+
 * {
   margin: 0;
   padding: 0;
   border: none;
   text-decoration: none;
+  list-style-type: none;
   box-sizing: border-box;
 }
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f9f9f9f9;
+}
+
+.container {
+  width: 90%;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+// parts
+
+@import "parts/header";
+@import "parts/footer";
