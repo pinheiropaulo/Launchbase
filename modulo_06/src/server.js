@@ -1,9 +1,9 @@
 require("dotenv").config();
-const express = require("express");
-const nunjucks = require("nunjucks");
-const methodOverride = require("method-override");
+import express from "express";
+import nunjucks from "nunjucks";
+import methodOverride from "method-override";
 
-const routes = require("./routes");
+import { routes } from "./routes";
 
 const server = express();
 const port = process.env.PORT || 8080;

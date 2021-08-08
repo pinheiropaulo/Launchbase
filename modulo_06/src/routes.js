@@ -1,8 +1,17 @@
-const express = require("express");
-const routes = express.Router();
+import { Router } from "express";
+
+import { ProductController } from "./app/controller/ProductController";
+
+const routes = new Router();
 
 routes.get("/", (req, res) => {
   res.render("layout.njk");
 });
 
-module.exports = routes;
+routes.get("/products/create", ProductController.create);
+
+routes.get("/ads/create", (req, res) => {
+  res.redirect("/products/create");
+});
+
+export { routes };
