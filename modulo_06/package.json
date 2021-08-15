@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": " npm-run-all -p nodemon build:sass browsersync",
+    "dev": "npm-run-all -p nodemon build:sass",
+    "start": "npm-run-all -p nodemon build:sass browsersync",
     "nodemon": "nodemon src/server.js",
     "browsersync": "browser-sync start --proxy http://localhost:8080 --files 'public,src/app/views'",
     "build:sass": "sass --watch ./src/app/scss/index.scss:public/styles/index.css"
@@ -20,6 +21,6 @@
     "browser-sync": "^2.27.5",
     "nodemon": "^2.0.12",
     "npm-run-all": "^4.1.5",
-    "sucrase": "^3.20.0"
+    "sucrase": "^3.20.1"
   }
 }
