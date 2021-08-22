@@ -1,7 +1,7 @@
-const create = (req, res) => {
-  return res.render("products/create.njk");
-};
+class ProductController {
+  create = (req, res) => {
+    return res.render("products/create.njk");
+  };
+}
 
-export const ProductController = {
-  create,
-};
+export default new ProductController();
