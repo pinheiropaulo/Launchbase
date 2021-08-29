@@ -1,17 +1,18 @@
-import { Router } from "express";
+const express = require('express');
+const routes = express.Router();
 
-import ProductController from "./app/controller/ProductController";
+const productController = require('./app/controller/ProductController');
 
-const routes = new Router();
-
-routes.get("/", (req, res) => {
-  res.render("layout.njk");
+routes.get('/', (req, res) => {
+  res.render('layout.njk');
 });
 
-routes.get("/products/create", ProductController.create);
+routes.get('/products/create', productController.create);
+routes.post('/products', productController.post);
 
-routes.get("/ads/create", (req, res) => {
-  res.redirect("/products/create");
+// Alias
+routes.get('/ads/create', (req, res) => {
+  res.redirect('/products/create');
 });
 
-export { routes };
+module.exports = routes;
