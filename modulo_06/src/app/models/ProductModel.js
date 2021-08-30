@@ -18,6 +18,8 @@ module.exports = {
 
     data.price = data.price.replace(/\D/g, '');
 
+console.log(data);
+
     const values = [
       data.category_id,
       data.user_id || 1,
