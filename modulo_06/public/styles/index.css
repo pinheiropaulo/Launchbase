@@ -40,20 +40,15 @@ body {
   cursor: pointer;
   transition: all 0.2;
 }
+.button.edit:hover {
+  filter: brightness(0.9);
+}
 .button.delete {
-  background-color: #e57373;
+  background-color: #607d8b;
+  filter: brightness(0.8);
 }
 .button.delete:hover {
-  background-color: #b71c1c;
-}
-.button.edit {
-  background-color: #1e88e5;
-}
-.button.edit:hover {
-  background-color: #0d47a1;
-}
-.button:hover {
-  background-color: #da7400;
+  filter: brightness(1);
 }
 
 :root {
