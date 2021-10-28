@@ -40,6 +40,18 @@ body {
   cursor: pointer;
   transition: all 0.2;
 }
+.button.delete {
+  background-color: #e57373;
+}
+.button.delete:hover {
+  background-color: #b71c1c;
+}
+.button.edit {
+  background-color: #1e88e5;
+}
+.button.edit:hover {
+  background-color: #0d47a1;
+}
 .button:hover {
   background-color: #da7400;
 }
@@ -160,10 +172,41 @@ form .item select {
 }
 form .item textarea {
   min-height: 150px;
+  font-family: "Roboto", sans-serif;
+}
+form .item.status > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+form .item span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 14px 20px;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  margin-top: 8px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+}
+form .item p {
+  font-size: 14px;
+  margin-left: 10px;
+}
+form .item input[type=radio] {
+  width: 16px;
+  height: 16px;
+}
+form .item input[type=radio]:hover {
+  cursor: pointer;
 }
 
 form .fields {
-  margin-bottom: 64px;
+  margin-bottom: 44px;
 }
 
 /*# sourceMappingURL=index.css.map */

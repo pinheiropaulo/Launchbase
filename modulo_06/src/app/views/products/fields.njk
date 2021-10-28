@@ -44,15 +44,17 @@
   </div>
 </div>
 
-{% if product.status %}
-  <div class="item">
+{% if (product.status == "1" or(product.status == 0)) %}
+  <div class="item status">
     <div>Disponível ?</div>
     <div>
       <span>
-        <input type="radio" name="status" value="1" {% if product.status == "1" %} checked="checked" {% endif %}>Sim
+        <input type="radio" name="status" value="1" {% if product.status == "1" %} checked="checked" {% endif %}>
+        <p>Sim</p>
       </span>
       <span>
-        <input type="radio" name="status" value="0" {% if product.status == "0" %} checked="checked" {% endif %}>Não
+        <input type="radio" name="status" value="0" {% if product.status == "0" %} checked="checked" {% endif %}>
+        <p>Não</p>
       </span>
     </div>
   </div>

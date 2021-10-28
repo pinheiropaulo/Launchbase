@@ -1,7 +1,7 @@
-const db = require('../../config/db');
+import { db } from '../../config/db';
 
-module.exports = {
+export class CategoryModel {
   all() {
     return db.query(`SELECT * FROM categories`);
-  },
-};
+  }
+}

@@ -47,6 +47,22 @@ body {
 
   transition: all 0.2;
 
+  &.delete {
+    background-color: #e57373;
+
+    &:hover {
+      background-color: #b71c1c;
+    }
+  }
+
+  &.edit {
+    background-color: #1e88e5;
+
+    &:hover {
+      background-color: #0d47a1;
+    }
+  }
+
   &:hover {
     background-color: #da7400;
   }
