@@ -5,20 +5,14 @@ const productController = new ProductController();
 
 const routes = Router();
 
-function teste() {
-  console.log('TESTE');
-}
-
 routes.get('/', (req, res) => {
   res.render('layout.njk');
 });
 
 routes.get('/products/create', productController.create);
 routes.get('/products/:id/edit', productController.edit);
-
 routes.post('/products', productController.post);
 routes.put('/products', productController.put);
-
 routes.delete('/products', productController.delete);
 
 // Alias
