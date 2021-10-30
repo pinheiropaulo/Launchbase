@@ -30,7 +30,7 @@
   <div>
     <div id="photos_upload">
       <input id="photos_input" type="file" name="photos" multiple="multiple" accept="image/*" onchange="PhotosUpload.handleFileInput(event)"/>
-      <p>Selecione até 6 Fotos</p>
+      <p class="photos_upload_description">Selecione até 6 Fotos</p>
     </div>
     <div id="photos_preview"></div>
   </div>
@@ -59,7 +59,7 @@
     <div>
       <span>
         <input type="radio" name="status" value="1" {% if product.status == "1" %} checked="checked" {% endif %}>
-        <p>Sim</p>
+        <p class="input_item_description">Sim</p>
       </span>
       <span>
         <input type="radio" name="status" value="0" {% if product.status == "0" %} checked="checked" {% endif %}>

@@ -188,7 +188,7 @@ form .item span {
   font-size: 12px;
   text-align: center;
 }
-form .item p {
+form .item .input_item_description {
   font-size: 14px;
   margin-left: 10px;
 }
@@ -199,13 +199,14 @@ form .item input[type=radio] {
 form .item input[type=radio]:hover {
   cursor: pointer;
 }
-form .item #photos_upload {
+
+#photos_upload {
   position: relative;
   display: block;
   overflow: hidden;
   width: 200px;
 }
-form .item #photos_upload p {
+#photos_upload .photos_upload_description {
   padding: 8px 16px;
   border-radius: 4px;
   background-color: var(--primary-color);
@@ -215,7 +216,8 @@ form .item #photos_upload p {
   text-transform: uppercase;
   font-size: 14px;
 }
-form .item #photos_input {
+
+#photos_input {
   position: absolute;
   top: 0;
   left: 0;
@@ -226,22 +228,23 @@ form .item #photos_input {
   opacity: 0;
   cursor: pointer;
 }
-form .item #photos_preview {
+
+#photos_preview {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 8px;
   width: 100%;
   margin: 8px 0;
 }
-form .item #photos_preview img {
+#photos_preview img {
   width: 100%;
   height: 150px;
   object-fit: cover;
 }
-form .item #photos_preview .photo {
+#photos_preview .photo {
   position: relative;
 }
-form .item #photos_preview .photo i {
+#photos_preview .photo i {
   position: absolute;
   top: 0;
   left: 0;
@@ -257,7 +260,7 @@ form .item #photos_preview .photo i {
   opacity: 0;
   transition: opacity 200ms;
 }
-form .item #photos_preview .photo i:hover {
+#photos_preview .photo i:hover {
   opacity: 1;
 }
 
