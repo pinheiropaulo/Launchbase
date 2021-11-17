@@ -1,7 +1,7 @@
-import { db } from '../../config/db';
+import db from '../../config/db';
 
-export class CategoryModel {
+module.exports = {
   all() {
     return db.query(`SELECT * FROM categories`);
-  }
-}
+  },
+};

@@ -32,14 +32,26 @@
       <input id="photos_input" type="file" name="photos" multiple="multiple" accept="image/*" onchange="PhotosUpload.handleFileInput(event)"/>
       <p class="photos_upload_description">Selecione até 6 Fotos</p>
     </div>
-    <div id="photos_preview"></div>
+    <div id="photos_preview">
+      {% if files %}
+        {% for image in files %}
+          <div class="photo" id="{{image.id}}">
+            <img src="{{image.src}}" alt="{{image.name}}">
+            <i class="material-icons" onclick="PhotosUpload.removeOldPhoto(event)">
+              delete
+            </i>
+          </div>
+        {% endfor %}
+        <input type="hidden" name="removed_files">
+      {% endif %}
+    </div>
   </div>
 </div>
 
 <div class="item">
   <div>Valor</div>
   <div>
-    <input type="text" name="price" placeholder="Preço do Produto" value="{{ product.price }}" onkeydown="Mask.apply(this, 'formatBRL')">
+    <input type="text" name="price" placeholder="Preço do Produto" value="{{product.price}}" onkeydown="Mask.apply(this, 'formatBRL')">
   </div>
   {% if product.old_price %}
     <input type="hidden" name="old_price" value="{{product.old_price}}">
@@ -49,7 +61,7 @@
 <div class="item">
   <div>Quantidade</div>
   <div>
-    <input type="number" name="quantity" placeholder="Estoque Disponível" value="{{ product.quantity }}">
+    <input type="number" name="quantity" placeholder="Estoque Disponível" value="{{product.quantity}}">
   </div>
 </div>
 

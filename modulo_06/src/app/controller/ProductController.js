@@ -1,26 +1,34 @@
-import { CategoryModel } from '../models/CategoryModel';
-import { ProductModel } from '../models/ProductModel';
+import categoryModel from '../models/CategoryModel';
+import productModel from '../models/ProductModel';
+import fileModel from '../models/FileModel';
 
 import { formatPrice } from '../../lib/utils';
 
-const categoryModel = new CategoryModel();
-const productModel = new ProductModel();
-
-export class ProductController {
+module.exports = {
   async create(req, res) {
     const results = await categoryModel.all();
 
     const categories = results.rows;
 
     return res.render('products/create.njk', { categories });
-  }
+  },
 
   async post(req, res) {
+    if (req.files.length == 0) {
+      return res.send('Please, send at least one image');
+    }
+
     let results = await productModel.create(req.body);
     const productId = results.rows[0].id;
 
+    const filesPromise = req.files.map((file) => {
+      fileModel.create({ ...file, product_id: productId });
+    });
+
+    await Promise.all(filesPromise);
+
     return res.redirect(`products/${productId}`);
-  }
+  },
 
   async edit(req, res) {
     let results = await productModel.find(req.params.id);
@@ -36,10 +44,40 @@ export class ProductController {
     results = await categoryModel.all();
     const categories = results.rows;
 
-    return res.render('products/edit.njk', { product, categories });
-  }
+    results = await productModel.files(product.id);
+    let files = results.rows;
+    files = files.map((file) => ({
+      ...file,
+      src: `${req.protocol}://${req.headers.host}${file.path.replace(
+        'public',
+        '',
+      )}`,
+    }));
+
+    return res.render('products/edit.njk', { product, categories, files });
+  },
 
   async put(req, res) {
+    if (req.files.length != 0) {
+      const newFilesPromise = req.files.map((file) =>
+        fileModel.create({ ...file, product_id: req.body.id }),
+      );
+
+      await Promise.all(newFilesPromise);
+    }
+
+    if (req.body.removed_files) {
+      const removedFiles = req.body.removed_files.split(',');
+      const lastIndex = removedFiles.length - 1;
+      removedFiles.splice(lastIndex, 1);
+
+      const removedFilesPromise = removedFiles.map((id) =>
+        fileModel.delete(id),
+      );
+
+      await Promise.all(removedFilesPromise);
+    }
+
     req.body.price = req.body.price.replace(/\D/g, '');
 
     if (req.body.old_price != req.body.price) {
@@ -50,11 +88,11 @@ export class ProductController {
     await productModel.update(req.body);
 
     return res.redirect(`/products/${req.body.id}/edit`);
-  }
+  },
 
   async delete(req, res) {
     await productModel.delete(req.body.id);
 
     return res.redirect('/products/create');
-  }
-}
+  },
+};

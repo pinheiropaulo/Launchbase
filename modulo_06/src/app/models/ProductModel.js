@@ -1,6 +1,6 @@
-import { db } from '../../config/db';
+import db from '../../config/db';
 
-export class ProductModel {
+module.exports = {
   create(data) {
     const query = `
     INSERT INTO products (
@@ -30,11 +30,11 @@ export class ProductModel {
     ];
 
     return db.query(query, values);
-  }
+  },
 
   find(id) {
     return db.query('SELECT * FROM products WHERE id = $1', [id]);
-  }
+  },
 
   update(data) {
     const query = `
@@ -63,9 +63,13 @@ export class ProductModel {
     ];
 
     return db.query(query, values);
-  }
+  },
 
   delete(id) {
     return db.query('DELETE FROM products WHERE id = $1', [id]);
-  }
-}
+  },
+
+  files(id) {
+    return db.query(`SELECT * FROM files WHERE product_id = $1`, [id]);
+  },
+};

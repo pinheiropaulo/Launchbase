@@ -24,6 +24,9 @@ CREATE TABLE "files" (
   "product_id" int
 );
 
+INSERT INTO categories("name") VALUES('Informática');
+INSERT INTO categories("name") VALUES('Comida');
+
 ALTER TABLE "products" ADD FOREIGN KEY ("category_id") REFERENCES "categories" ("id");
 
 ALTER TABLE "files" ADD FOREIGN KEY ("product_id") REFERENCES "products" ("id");
