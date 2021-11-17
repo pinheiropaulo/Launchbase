@@ -4,7 +4,7 @@ import fileModel from '../models/FileModel';
 
 import { formatPrice } from '../../lib/utils';
 
-module.exports = {
+export default {
   async create(req, res) {
     const results = await categoryModel.all();
 

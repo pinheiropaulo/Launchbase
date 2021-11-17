@@ -2,7 +2,7 @@ import fs from 'fs';
 
 import db from '../../config/db';
 
-module.exports = {
+export default {
   create(data) {
     const query = `
       INSERT INTO files (
