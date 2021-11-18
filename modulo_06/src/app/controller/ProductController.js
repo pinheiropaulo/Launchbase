@@ -2,7 +2,7 @@ import categoryModel from '../models/CategoryModel';
 import productModel from '../models/ProductModel';
 import fileModel from '../models/FileModel';
 
-import { formatPrice } from '../../lib/utils';
+import { formatPrice, date } from '../../lib/utils';
 
 export default {
   async create(req, res) {
@@ -27,7 +27,28 @@ export default {
 
     await Promise.all(filesPromise);
 
-    return res.redirect(`products/${productId}`);
+    return res.redirect(`products/${productId}/edit`);
+  },
+
+  async show(req, res) {
+    let results = await productModel.find(req.params.id);
+    const product = results.rows[0];
+
+    if (!product) {
+      return res.send('Product Not Found');
+    }
+
+    const { day, month, hour, minute } = date(product.updated_at);
+
+    product.published = {
+      day: `${day}/${month}`,
+      hour: `${hour}h${minute}`,
+    };
+
+    product.oldPrice = formatPrice(product.old_price);
+    product.price = formatPrice(product.price);
+
+    return res.render('products/show.njk', { product });
   },
 
   async edit(req, res) {
@@ -87,7 +108,7 @@ export default {
 
     await productModel.update(req.body);
 
-    return res.redirect(`/products/${req.body.id}/edit`);
+    return res.redirect(`/products/${req.body.id}`);
   },
 
   async delete(req, res) {
