@@ -1,6 +1,13 @@
 import db from '../../config/db';
 
 export default {
+  all() {
+    return db.query(`
+    SELECT * FROM products
+    ORDER BY updated_at DESC
+  `);
+  },
+
   create(data) {
     const query = `
     INSERT INTO products (

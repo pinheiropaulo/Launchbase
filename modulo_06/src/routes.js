@@ -3,12 +3,11 @@ import { Router } from 'express';
 import multer from './app/middlewares/multer';
 
 import ProductController from './app/controller/ProductController';
+import HomeController from './app/controller/HomeController';
 
 const routes = Router();
 
-routes.get('/', (req, res) => {
-  res.render('layout.njk');
-});
+routes.get('/', HomeController.index);
 
 routes.get('/products/create', ProductController.create);
 routes.get('/products/:id', ProductController.show);
