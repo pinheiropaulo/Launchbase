@@ -427,4 +427,38 @@ form .fields {
   text-decoration: line-through;
 }
 
+.search-products {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  margin-top: 48px;
+}
+.search-products .header {
+  margin-bottom: 48px;
+  font-size: 14px;
+  color: #333;
+}
+.search-products .header h2 {
+  font-size: 26px;
+  text-transform: capitalize;
+  margin-bottom: 8px;
+}
+.search-products nav h4 {
+  margin-bottom: 16px;
+  color: #333;
+  font: size 14px;
+  text-transform: uppercase;
+}
+.search-products nav ul li {
+  display: flex;
+  flex-direction: column;
+}
+.search-products nav ul a {
+  margin: 4px 0;
+  color: #777;
+}
+.search-products nav ul a:hover {
+  color: #000;
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=index.css.map */

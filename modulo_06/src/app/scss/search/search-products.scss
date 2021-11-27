@@ -1,0 +1,45 @@
+.search-products {
+  display: grid;
+
+  grid-template-columns: 200px 1fr;
+  margin-top: 48px;
+
+  .header {
+    margin-bottom: 48px;
+    font-size: 14px;
+    color: #333;
+
+    h2 {
+      font-size: 26px;
+      text-transform: capitalize;
+
+      margin-bottom: 8px;
+    }
+  }
+
+  nav {
+    h4 {
+      margin-bottom: 16px;
+      color: #333;
+      font: size 14px;
+      text-transform: uppercase;
+    }
+
+    ul {
+      li {
+        display: flex;
+        flex-direction: column;
+      }
+
+      a {
+        margin: 4px 0;
+        color: #777;
+
+        &:hover {
+          color: #000;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
