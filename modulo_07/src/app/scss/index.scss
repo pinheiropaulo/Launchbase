@@ -1,0 +1,18 @@
+@import 'globalStyle';
+
+@import 'variables';
+
+// parts
+@import 'parts/header';
+@import 'parts/footer';
+
+// products
+@import 'products/create';
+@import 'products/fields';
+@import 'products/show';
+
+// home
+@import 'home/shop';
+
+//search
+@import 'search/search-products.scss';
