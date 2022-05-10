@@ -10,6 +10,7 @@
     "build:sass": "sass --watch ./src/app/scss/index.scss:public/styles/index.css"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "method-override": "^3.0.0",
