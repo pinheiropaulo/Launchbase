@@ -1,5 +1,4 @@
 import fs from 'fs';
-
 import db from '../../config/db';
 
 export default {

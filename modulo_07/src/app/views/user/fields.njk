@@ -1,20 +1,20 @@
 <div class="item">
   <div>Nome Completo</div>
-  <div>
-    <input type="text" name="name" placeholder="Digite seu nome completo" value="{{user.name}}">
+  <div class="input">
+    <input required="required" type="text" name="name" placeholder="Digite seu nome completo" value="{{user.name}}">
   </div>
 </div>
 
 <div class="item">
   <div>Email</div>
-  <div>
-    <input type="email" name="email" placeholder="Digite Email" value="{{user.email}}">
+  <div class="input">
+    <input type="email" name="email" placeholder="Digite Email" value="{{user.email}}" onblur="Validate.apply(this, 'isEmail')">
   </div>
 </div>
 
 <div class="item">
   <div>Senha</div>
-  <div>
+  <div class="input">
     <input type="password" name="password" placeholder="Escolha uma senha" value="{{user.password}}">
   </div>
 </div>
@@ -22,7 +22,7 @@
 {% if not user.id %}
   <div class="item">
     <div>Confirmar Senha</div>
-    <div>
+    <div class="input">
       <input type="password" name="passwordRepeat" placeholder="Confirme a senha">
     </div>
   </div>
@@ -30,21 +30,21 @@
 
 <div class="item">
   <div>CPF ou CNPJ</div>
-  <div>
-    <input type="text" name="cpf_cnpj" placeholder="Digite seu documento" value="{{user.cpf_cnpj}}">
+  <div class="input">
+    <input type="text" name="cpf_cnpj" placeholder="Digite seu documento" value="{{user.cpf_cnpj}}" onkeydown="Mask.apply(this, 'cpfCNPJ')" onblur="Validate.apply(this, 'isCpfCNPJ')">
   </div>
 </div>
 
 <div class="item">
   <div>CEP</div>
-  <div>
-    <input type="text" name="cep" placeholder="Digite seu CEP" value="{{user.cep}}">
+  <div class="input">
+    <input type="text" name="cep" placeholder="Digite seu CEP" value="{{user.cep}}" onkeydown="Mask.apply(this, 'cep')" onblur="Validate.apply(this, 'isCEP')">
   </div>
 </div>
 
 <div class="item">
   <div>Endereço Completo</div>
-  <div>
+  <div class="input">
     <input type="text" name="address" placeholder="Digite seu Endereço" value="{{user.address}}">
   </div>
 </div>

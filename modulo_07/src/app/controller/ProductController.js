@@ -1,8 +1,7 @@
+import { date, formatPrice } from '../../lib/utils';
 import categoryModel from '../models/CategoryModel';
-import productModel from '../models/ProductModel';
 import fileModel from '../models/FileModel';
-
-import { formatPrice, date } from '../../lib/utils';
+import productModel from '../models/ProductModel';
 
 export default {
   async create(req, res) {

@@ -1,7 +1,5 @@
-import productModel from '../models/ProductModel';
-import fileModel from '../models/FileModel';
-
 import { formatPrice } from '../../lib/utils';
+import productModel from '../models/ProductModel';
 
 export default {
   async index(req, res) {

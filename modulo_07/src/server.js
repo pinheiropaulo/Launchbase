@@ -1,8 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
-import nunjucks from 'nunjucks';
 import methodOverride from 'method-override';
-
+import nunjucks from 'nunjucks';
 import { routes } from './routes';
 
 const server = express();

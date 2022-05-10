@@ -1,9 +1,8 @@
 import { Router } from 'express';
-
-import SessionController from '../app/controller/SessionController';
 import UserController from '../app/controller/UserController';
+import UserValidator from '../app/validators/UserValidator';
 
-const routes = Router();
+export const routes = Router();
 
 // // Login / Logout
 // routes.get('/login', SessionController.loginForm);
@@ -18,10 +17,8 @@ const routes = Router();
 
 // // User
 routes.get('/register', UserController.registerForm);
-// routes.get('/register', UserController.post);
+routes.post('/register', UserValidator.post, UserController.post);
 
 // routes.get('/', UserController.show);
 // routes.put('/', UserController.put);
 // routes.delete('/', UserController.delete);
-
-export { routes };

@@ -1,11 +1,9 @@
 import { Router } from 'express';
-
 import HomeController from '../app/controller/HomeController';
-
 import { routes as products } from './products';
 import { routes as users } from './users';
 
-const routes = Router();
+export const routes = Router();
 
 // Home
 routes.get('/', HomeController.index);
@@ -21,5 +19,3 @@ routes.get('/ads/create', (req, res) => {
 routes.get('/accounts', (req, res) => {
   return res.redirect('/users/register');
 });
-
-export { routes };

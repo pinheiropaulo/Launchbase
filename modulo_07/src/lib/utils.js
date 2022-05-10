@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   date(timestamp) {
     const date = new Date(timestamp);
 
