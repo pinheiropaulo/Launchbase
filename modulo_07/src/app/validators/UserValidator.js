@@ -10,11 +10,17 @@ export default {
     });
 
     if (user) {
-      return res.send('User exists');
+      return res.render('user/register', {
+        user: req.body,
+        error: 'Usuário já cadastrado',
+      });
     }
 
     if (password != passwordRepeat) {
-      return res.send('Password Mismatch');
+      return res.render('user/register', {
+        user: req.body,
+        error: 'Senha invalida',
+      });
     }
 
     next();
