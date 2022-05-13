@@ -1,0 +1,22 @@
+@import 'globalStyle';
+
+@import 'variables';
+
+// parts
+@import 'parts/header';
+@import 'parts/footer';
+@import 'parts/messages';
+
+// products
+@import 'products/create';
+@import 'products/fields';
+@import 'products/show';
+
+// home
+@import 'home/shop';
+
+//search
+@import 'search/search-products.scss';
+
+// user
+@import 'user/register.scss';
