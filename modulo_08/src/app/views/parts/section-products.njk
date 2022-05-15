@@ -11,7 +11,10 @@
 
         <div class="product">
 
-          <div class="image" style="background-image: url({{product.img if product.img else '//place-hold.it/500x360'}})"></div>
+          <div class="image">
+            <img src="{{product.img if product.img else '//place-hold.it/500x360'}}" alt="{{ product.name }}">
+          </div>
+
           {% if product.oldPrice != product.price %}
             <div class="old-price">{{product.oldPrice}}</div>
           {% endif %}

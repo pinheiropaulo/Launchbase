@@ -1,13 +1,17 @@
 import { Router } from 'express';
 import SessionController from '../app/controller/SessionController';
 import UserController from '../app/controller/UserController';
+import {
+  isLoggedRedirectToUsers,
+  onlyUsers,
+} from '../app/middlewares/SessionMiddlewares';
 import SessionValidator from '../app/validators/SessionValidator';
 import UserValidator from '../app/validators/UserValidator';
 
 export const routes = Router();
 
 // // Login / Logout
-routes.get('/login', SessionController.loginForm);
+routes.get('/login', isLoggedRedirectToUsers, SessionController.loginForm);
 routes.post('/login', SessionValidator.login, SessionController.login);
 routes.post('/logout', SessionController.logout);
 
@@ -21,6 +25,6 @@ routes.post('/logout', SessionController.logout);
 routes.get('/register', UserController.registerForm);
 routes.post('/register', UserValidator.post, UserController.post);
 
-routes.get('/', UserValidator.show, UserController.show);
+routes.get('/', onlyUsers, UserValidator.show, UserController.show);
 routes.put('/', UserValidator.update, UserController.update);
 // routes.delete('/', UserController.delete);

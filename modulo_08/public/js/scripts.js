@@ -109,8 +109,6 @@ const PhotosUpload = {
 
     PhotosUpload.files.forEach((file) => dataTransfer.items.add(file));
 
-    console.log(dataTransfer.files);
-
     return dataTransfer.files;
   },
 
