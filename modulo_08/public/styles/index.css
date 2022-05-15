@@ -167,13 +167,11 @@ footer {
   opacity: 1;
   animation: hideMessage 400ms 5s ease-out forwards;
 }
-
-.message.error {
-  background: #c62828;
-}
-
 .message.success {
   background: #2e7d32;
+}
+.message.error {
+  background: #c62828;
 }
 
 @keyframes hideMessage {
@@ -537,6 +535,21 @@ form .fields {
   border-radius: 4px;
   color: #fff;
   margin-top: 2px;
+}
+
+section.login.container .fields {
+  margin-bottom: 32px;
+}
+section.login.container .footer ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+section.login.container .footer ul li a {
+  color: #777;
+}
+section.login.container .footer ul li a:hover {
+  color: #000;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=index.css.map */

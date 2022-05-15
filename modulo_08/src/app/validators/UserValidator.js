@@ -1,6 +1,5 @@
-// import { compare } from 'bcryptjs';
+import { compare } from 'bcryptjs';
 import UserModel from '../models/UserModel';
-const { compare } = require('bcryptjs');
 
 export default {
   async post(req, res, next) {

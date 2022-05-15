@@ -1,6 +1,5 @@
+import { formatCep, formatCpfCnpj } from '../../lib/utils';
 import UserModel from '../models/UserModel';
-
-const { formatCep, formatCpfCnpj } = require('../../lib/utils');
 
 export default {
   registerForm(req, res) {

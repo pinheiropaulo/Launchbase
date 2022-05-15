@@ -10,14 +10,14 @@
   opacity: 1;
 
   animation: hideMessage 400ms 5s ease-out forwards;
-}
 
-.message.error {
-  background: #c62828;
-}
+  &.success {
+    background: #2e7d32;
+  }
 
-.message.success {
-  background: #2e7d32;
+  &.error {
+    background: #c62828;
+  }
 }
 
 @keyframes hideMessage {
