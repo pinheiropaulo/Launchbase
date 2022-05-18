@@ -17,6 +17,8 @@ export default {
       return res.send('Please, send at least one image');
     }
 
+    req.body.user_id = req.session.userId;
+
     let results = await productModel.create(req.body);
     const productId = results.rows[0].id;
 

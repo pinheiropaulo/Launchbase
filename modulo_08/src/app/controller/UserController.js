@@ -52,4 +52,23 @@ export default {
       });
     }
   },
+
+  async delete(req, res) {
+    try {
+      await UserModel.delete(req.body.id);
+
+      req.session.destroy();
+
+      return res.render('session/login', {
+        success: 'Conta deletada com sucesso',
+      });
+      //
+    } catch (error) {
+      console.error(error);
+      return res.render('user/index', {
+        user: req.body,
+        error: 'Erro ao tentar deletar sua conta',
+      });
+    }
+  },
 };

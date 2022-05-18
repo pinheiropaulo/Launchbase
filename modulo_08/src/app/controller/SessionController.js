@@ -38,9 +38,6 @@ export default {
         reset_token_expires: now,
       });
 
-      console.log(token);
-      console.log(user);
-
       await transport.sendMail({
         to: user.email,
         from: 'no-reply@launchstore.com.br',
@@ -76,7 +73,7 @@ export default {
 
   async reset(req, res) {
     const user = req.user;
-    const { password } = req.body;
+    const { password, token } = req.body;
 
     try {
       const newPassword = await hash(password, 8);
@@ -97,6 +94,7 @@ export default {
 
       return res.render('session/password-reset', {
         user: req.body,
+        token,
         success: 'Algo deu errado, favor tentar novamente...',
       });
     }

@@ -1,5 +1,7 @@
 import { hash } from 'bcryptjs';
+import fs from 'fs';
 import db from '../../config/db';
+import ProductModel from '../models/ProductModel';
 
 export default {
   async findOne(filters) {
@@ -69,5 +71,31 @@ export default {
     await db.query(query);
 
     return;
+  },
+
+  async delete(id) {
+    let result = await db.query('SELECT * FROM products WHERE user_id = $1', [
+      id,
+    ]);
+
+    const products = result.rows;
+
+    const allFilesPromise = products.map((product) =>
+      ProductModel.files(product.id),
+    );
+
+    let promiseResults = await Promise.all(allFilesPromise);
+
+    await db.query('DELETE FROM users WHERE id = $1', [id]);
+
+    promiseResults.map((result) => {
+      result.rows.map((file) => {
+        try {
+          fs.unlinkSync(file.path);
+        } catch (error) {
+          console.error(error);
+        }
+      });
+    });
   },
 };

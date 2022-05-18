@@ -54,9 +54,6 @@ export default {
 
     const user = await UserModel.findOne({ where: { email } });
 
-    console.log(user);
-    // console.log(user.reset_token);
-
     if (!user) {
       return res.render('session/password-reset', {
         user: req.body,
@@ -74,10 +71,6 @@ export default {
     }
 
     if (token != user.reset_token) {
-      // //
-      // console.log(token);
-      // console.log(user.reset_token);
-
       return res.render('session/password-reset', {
         user: req.body,
         token,
