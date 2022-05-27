@@ -1,0 +1,46 @@
+.shop {
+  h2 {
+    margin: 48px 0;
+  }
+
+  .item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 32px;
+  }
+
+  .product {
+    display: grid;
+
+    .image {
+      img {
+        width: 300px;
+        height: 200px;
+
+        object-fit: cover;
+      }
+    }
+
+    h4 {
+      margin: 8px 0;
+      font-weight: 300;
+      color: #999;
+    }
+
+    p {
+      color: #101010;
+      font-weight: 300;
+      font-size: 24px;
+      margin-top: 8px;
+    }
+
+    .old-price {
+      padding: 0;
+      margin: 4px 0;
+
+      font-size: 14px;
+      color: #999;
+      text-decoration: line-through;
+    }
+  }
+}

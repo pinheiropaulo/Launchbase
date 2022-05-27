@@ -1,0 +1,27 @@
+.order-success {
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 0;
+    padding: 50px;
+    text-align: center;
+
+    margin: auto;
+  }
+
+  .success-lottie {
+    height: 200px;
+  }
+
+  p {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  a {
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+}
