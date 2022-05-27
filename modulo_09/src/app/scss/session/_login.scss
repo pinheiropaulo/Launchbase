@@ -1,0 +1,27 @@
+section {
+  &.login {
+    &.container {
+      .fields {
+        margin-bottom: 32px;
+      }
+
+      .footer {
+        ul {
+          display: flex;
+          justify-content: space-evenly;
+
+          li {
+            a {
+              color: #777;
+
+              &:hover {
+                color: #000;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
