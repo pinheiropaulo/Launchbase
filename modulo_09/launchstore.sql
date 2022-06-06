@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS launchstoredb;
-CREATE DATABASE launchstoredb;
+DROP DATABASE IF EXISTS modulo_09;
+CREATE DATABASE modulo_09;
 
 CREATE TABLE "products" (
   "id" SERIAL PRIMARY KEY,
@@ -108,7 +108,7 @@ FOREIGN KEY ("product_id")
 REFERENCES "products" ("id")
 ON DELETE CASCADE;
 
--- 
+--
 ALTER SEQUENCE products_id_seq RESTART WITH 1;
 ALTER SEQUENCE users_id_seq RESTART WITH 1;
 ALTER SEQUENCE files_id_seq RESTART WITH 1;
