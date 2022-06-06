@@ -1,6 +1,6 @@
-import multer from 'multer';
+import multer, { diskStorage } from 'multer';
 
-const storage = multer.diskStorage({
+const storage = diskStorage({
   destination: (req, file, cb) => {
     cb(null, './public/images');
   },
@@ -21,7 +21,7 @@ const fileFilter = (req, file, cb) => {
   return cb(null, false);
 };
 
-module.exports = multer({
+export default multer({
   storage,
   fileFilter,
 });

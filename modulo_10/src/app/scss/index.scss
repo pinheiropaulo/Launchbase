@@ -7,6 +7,7 @@
 @import 'parts/footer';
 @import 'parts/messages';
 @import 'parts/card';
+@import 'parts/drop_dow';
 
 // products
 @import 'products/create';
@@ -26,6 +27,11 @@
 // session
 @import 'session/login';
 
-// success
+// orders
+@import 'orders/index';
 @import 'orders/success';
 @import 'orders/error';
+@import 'orders/details';
+
+// cart
+@import 'cart/index';

@@ -3,8 +3,7 @@ import { unlinkSync } from 'fs';
 import { formatCep, formatCpfCnpj } from '../../lib/utils';
 import ProductModel from '../models/ProductModel';
 import UserModel from '../models/UserModel';
-
-const LoadProductService = require('../services/LoadProductService');
+import { LoadService } from '../services/LoadProductService';
 
 export default {
   registerForm(req, res) {
@@ -118,7 +117,7 @@ export default {
   },
 
   async ads(req, res) {
-    const products = await LoadProductService.load('products', {
+    const products = await LoadService.load('products', {
       where: { user_id: req.session.userId },
     });
 

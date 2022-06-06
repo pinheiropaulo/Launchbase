@@ -1,7 +1,7 @@
-const BaseModel = require('./BaseModel');
+import { BaseModel } from './BaseModel';
 
 BaseModel.init({ table: 'categories' });
 
-module.exports = {
+export default {
   ...BaseModel,
 };

@@ -3,7 +3,7 @@ import express from 'express';
 import methodOverride from 'method-override';
 import nunjucks from 'nunjucks';
 import session from './config/session';
-import { routes } from './routes';
+import { routes } from './routes/index.routes';
 
 const server = express();
 const port = process.env.PORT || 8080;

@@ -1,5 +1,5 @@
 import productModel from '../models/ProductModel';
-const LoadProductService = require('../services/LoadProductService');
+import { LoadService } from '../services/LoadProductService';
 
 export default {
   async index(req, res) {
@@ -12,7 +12,7 @@ export default {
 
       let products = await productModel.search({ filter, category });
 
-      const productsPromise = products.map(LoadProductService.format);
+      const productsPromise = products.map(LoadService.format);
 
       products = await Promise.all(productsPromise);
 

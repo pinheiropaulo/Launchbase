@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import OrderController from '../app/controller/OrderController';
 import SessionController from '../app/controller/SessionController';
 import UserController from '../app/controller/UserController';
 import {
@@ -16,7 +15,7 @@ routes.get('/login', isLoggedRedirectToUsers, SessionController.loginForm);
 routes.post('/login', SessionValidator.login, SessionController.login);
 routes.post('/logout', SessionController.logout);
 
-// // Reset Password
+// Reset Password
 routes.get('/forgot-password', SessionController.forgotForm);
 routes.get('/password-reset', SessionController.resetForm);
 routes.post(
@@ -36,7 +35,6 @@ routes.delete('/', UserController.delete);
 
 routes.get('/ads', UserController.ads);
 
-routes.post('/order', onlyUsers, OrderController.post);
-
+// routes.post('/order', onlyUsers, OrderController.post);
 // routes.get('/order/success', (req, res) => res.render('orders/success'));
 // routes.get('/order/error', (req, res) => res.render('orders/error'));

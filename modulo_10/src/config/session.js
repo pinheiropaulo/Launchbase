@@ -1,8 +1,8 @@
+import session from 'express-session';
 import db from './db';
-const session = require('express-session');
 const pgSession = require('connect-pg-simple')(session);
 
-module.exports = session({
+export default session({
   store: new pgSession({
     pool: db,
   }),

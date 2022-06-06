@@ -1,9 +1,9 @@
-const LoadProductService = require('../services/LoadProductService');
+import { LoadService } from '../services/LoadProductService';
 
 export default {
   async index(req, res) {
     try {
-      const allProducts = await LoadProductService.load('products');
+      const allProducts = await LoadService.load('products');
 
       const products = allProducts.filter((product, index) =>
         index > 2 ? false : true,

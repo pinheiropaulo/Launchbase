@@ -1,9 +1,9 @@
-const db = require('../../config/db');
-const BaseModel = require('./BaseModel');
+import db from '../../config/db';
+import { BaseModel } from './BaseModel';
 
 BaseModel.init({ table: 'products' });
 
-module.exports = {
+export default {
   ...BaseModel,
 
   async files(id) {

@@ -46,7 +46,11 @@ export default {
       });
 
       const filesPromise = req.files.map((file) => {
-        fileModel.create({ name: file.name, path: file.path, product_id });
+        fileModel.create({
+          name: file.filename,
+          path: file.path,
+          product_id,
+        });
       });
 
       await Promise.all(filesPromise);
@@ -90,9 +94,13 @@ export default {
   async put(req, res) {
     try {
       if (req.files.length != 0) {
-        const newFilesPromise = req.files.map((file) =>
-          fileModel.create({ ...file, product_id: req.body.id }),
-        );
+        const newFilesPromise = req.files.map((file) => {
+          fileModel.create({
+            name: file.filename,
+            path: file.path,
+            product_id: req.body.id,
+          });
+        });
 
         await Promise.all(newFilesPromise);
       }

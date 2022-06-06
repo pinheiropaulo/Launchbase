@@ -30,7 +30,7 @@ async function format(product) {
   return product;
 }
 
-const LoadService = {
+export const LoadService = {
   load(service, filter) {
     this.filter = filter;
     return this[service]();
@@ -57,7 +57,14 @@ const LoadService = {
     }
   },
 
+  async productWithDeleted() {
+    try {
+      let product = await productModel.findOneWithDeleted(this.filter);
+      return format(product);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
   format,
 };
-
-module.exports = LoadService;

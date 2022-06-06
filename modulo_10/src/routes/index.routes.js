@@ -1,7 +1,9 @@
 import { Router } from 'express';
 import HomeController from '../app/controller/HomeController';
-import { routes as products } from './products';
-import { routes as users } from './users';
+import { routes as cart } from './cart.routes';
+import { routes as orders } from './orders.routes';
+import { routes as products } from './products.routes';
+import { routes as users } from './users.routes';
 
 export const routes = Router();
 
@@ -10,6 +12,8 @@ routes.get('/', HomeController.index);
 
 routes.use('/products', products);
 routes.use('/users', users);
+routes.use('/cart', cart);
+routes.use('/orders', orders);
 
 // Alias
 routes.get('/ads/create', (req, res) => {

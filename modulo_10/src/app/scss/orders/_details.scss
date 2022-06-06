@@ -1,0 +1,105 @@
+.order-detail {
+  .info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 300;
+
+    h4 {
+      color: #777;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+
+      margin-bottom: 8px;
+    }
+
+    div {
+      margin-bottom: 8px;
+    }
+
+    .status {
+      text-align: right;
+
+      h2 {
+        margin-bottom: 8px;
+      }
+
+      p {
+        color: #777;
+        font-size: 12px;
+      }
+    }
+
+    .open {
+      h2 {
+        color: var(--status-open);
+      }
+    }
+
+    .sold {
+      h2 {
+        color: var(--status-sold);
+      }
+    }
+
+    .canceled {
+      h2 {
+        color: var(--status-canceled);
+      }
+    }
+  }
+
+  .product {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+
+    padding: 16px 0;
+    margin-bottom: 16px;
+
+    img {
+      width: 100px;
+      height: 100px;
+
+      object-fit: contain;
+
+      margin-right: 16px;
+    }
+
+    .price {
+      flex: 1;
+      color: #555;
+      font-weight: bold;
+      text-align: right;
+
+      .quantity {
+        font-weight: 300;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .total {
+    color: #333;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    span {
+      font-size: 16px;
+      font-weight: 500;
+      margin-right: 8px;
+    }
+  }
+}

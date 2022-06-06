@@ -1,4 +1,4 @@
-const db = require('../../config/db');
+import db from '../../config/db';
 
 function find(filters, table) {
   let query = `SELECT * FROM ${table}`;
@@ -16,7 +16,7 @@ function find(filters, table) {
   return db.query(query);
 }
 
-const BaseModel = {
+export const BaseModel = {
   init({ table }) {
     if (!table) {
       throw new Error('Invalid Params');
@@ -41,6 +41,11 @@ const BaseModel = {
     return results.rows;
   },
 
+  async findOneWithDeleted(filters) {
+    const results = await find(filters, `${this.table}_with_deleted`);
+    return results.rows[0];
+  },
+
   async create(fields) {
     try {
       let keys = [];
@@ -55,8 +60,8 @@ const BaseModel = {
         VALUES (${values.join(',')})
       RETURNING id`;
 
-      const result = await db.query(query);
-      return result.rows[0].id;
+      const results = await db.query(query);
+      return results.rows[0].id;
       //
     } catch (error) {
       console.error(error);
@@ -86,5 +91,3 @@ const BaseModel = {
     return db.query(`DELETE FROM ${this.table} WHERE id = ${id}`);
   },
 };
-
-module.exports = BaseModel;

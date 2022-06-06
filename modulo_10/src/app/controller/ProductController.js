@@ -2,8 +2,7 @@ import { unlinkSync } from 'fs';
 import categoryModel from '../models/CategoryModel';
 import fileModel from '../models/FileModel';
 import productModel from '../models/ProductModel';
-
-const LoadProductService = require('../services/LoadProductService');
+import { LoadService } from '../services/LoadProductService';
 
 export default {
   async create(req, res) {
@@ -46,7 +45,11 @@ export default {
       });
 
       const filesPromise = req.files.map((file) => {
-        fileModel.create({ name: file.name, path: file.path, product_id });
+        fileModel.create({
+          name: file.filename,
+          path: file.path,
+          product_id,
+        });
       });
 
       await Promise.all(filesPromise);
@@ -59,7 +62,7 @@ export default {
 
   async show(req, res) {
     try {
-      const product = await LoadProductService.load('product', {
+      const product = await LoadService.load('product', {
         where: {
           id: req.params.id,
         },
@@ -73,7 +76,7 @@ export default {
 
   async edit(req, res) {
     try {
-      const product = await LoadProductService.load('product', {
+      const product = await LoadService.load('product', {
         where: {
           id: req.params.id,
         },
@@ -90,9 +93,13 @@ export default {
   async put(req, res) {
     try {
       if (req.files.length != 0) {
-        const newFilesPromise = req.files.map((file) =>
-          fileModel.create({ ...file, product_id: req.body.id }),
-        );
+        const newFilesPromise = req.files.map((file) => {
+          fileModel.create({
+            name: file.filename,
+            path: file.path,
+            product_id: req.body.id,
+          });
+        });
 
         await Promise.all(newFilesPromise);
       }

@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS launchstoredb;
-CREATE DATABASE launchstoredb;
+DROP DATABASE IF EXISTS modulo_10;
+CREATE DATABASE modulo_10;
 
 CREATE TABLE "products" (
   "id" SERIAL PRIMARY KEY,
@@ -108,7 +108,46 @@ FOREIGN KEY ("product_id")
 REFERENCES "products" ("id")
 ON DELETE CASCADE;
 
--- 
+--
 ALTER SEQUENCE products_id_seq RESTART WITH 1;
 ALTER SEQUENCE users_id_seq RESTART WITH 1;
 ALTER SEQUENCE files_id_seq RESTART WITH 1;
+
+-- orders
+
+CREATE TABLE "orders" (
+  "id" SERIAL PRIMARY KEY,
+  "seller_id" int NOT NULL,
+  "buyer_id" int NOT NULL,
+  "product_id" int NOT NULL,
+  "price" int NOT NULL,
+  "quantity" int DEFAULT 0,
+  "total" int NOT NULL,
+  "status" text NOT NULL,
+  "created_at" timestamp DEFAULT(now()),
+  "updated_at" timestamp DEFAULT(now())
+);
+
+ALTER TABLE "orders" ADD FOREIGN KEY ("seller_id") REFERENCES "users" ("id");
+ALTER TABLE "orders" ADD FOREIGN KEY ("buyer_id") REFERENCES "users" ("id");
+ALTER TABLE "files" ADD FOREIGN KEY ("product_id") REFERENCES "products" ("id");
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON orders
+FOR EACH ROW
+EXECUTE PROCEDURE trigger_set_timestamp();
+
+-- Soft Delete
+ALTER TABLE products ADD COLUMN "deleted_at" timestamp;
+
+CREATE OR REPLACE RULE delete_product AS
+ON DELETE TO products DO INSTEAD
+UPDATE products
+SET deleted_at = now()
+WHERE products.id = old.id;
+
+CREATE VIEW products_without_deleted AS
+SELECT * FROM products WHERE deleted_at IS NULL;
+
+ALTER TABLE products RENAME TO products_with_deleted;
+ALTER TABLE products_without_deleted RENAME TO products;

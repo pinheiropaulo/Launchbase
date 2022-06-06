@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS launchstoredb;
-CREATE DATABASE launchstoredb;
+DROP DATABASE IF EXISTS modulo_08;
+CREATE DATABASE modulo_08;
 
 CREATE TABLE "products" (
   "id" SERIAL PRIMARY KEY,
